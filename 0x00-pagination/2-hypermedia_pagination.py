@@ -6,7 +6,7 @@ defaut number and return the list of the specified to index
 import csv
 import math
 from typing import List
-import requests  # type: ignore
+import requests
 
 
 def download_csv(url: str, filename: str) -> None:
