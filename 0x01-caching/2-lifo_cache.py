@@ -11,8 +11,8 @@ class LIFOCache(BaseCaching):
     """
     def __init__(self):
         super().__init__()
-        self.LIFO =[]
-    
+        self.LIFO = []
+
     def put(self, key, item):
         """
         put the key and item in to dectionary
@@ -26,7 +26,7 @@ class LIFOCache(BaseCaching):
                 last_key = self.LIFO.pop()
                 del self.cache_data[last_key]
                 print(f"DISCARD: {last_key}")
-    
+
     def get(self, key):
         """ Get an item by key """
         if key is None or key not in self.cache_data:
