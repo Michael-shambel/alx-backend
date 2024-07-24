@@ -12,25 +12,26 @@ class LRUCache(BaseCaching):
     def __init__(self):
         super().__init__()
         self.LRU = []
-    
+
     def put(self, key, item):
         """
         Put the key and item into the dictionary
         """
         if key is not None and item is not None:
-            if key not in self.cache_data:
-                self.LRU.append(key)
-            else:
+            if key in self.cache_data:
                 self.LRU.remove(key)
+            self.LRU.append(key)
             self.cache_data[key] = item
 
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 least_used = self.LRU.pop(0)
                 del self.cache_data[least_used]
                 print(f"DISCARD: {least_used}")
-    
+
     def get(self, key):
         """ Get an item by key """
         if key is None or key not in self.cache_data:
             return None
+        self.LRU.remove(key)
+        self.LRU.append(key)
         return self.cache_data[key]
