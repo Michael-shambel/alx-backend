@@ -7,7 +7,7 @@ from base_caching import BaseCaching
 
 class LIFOCache(BaseCaching):
     """
-
+    this class will add and get cache item using LIFO algorithm
     """
     def __init__(self):
         super().__init__()
