@@ -24,7 +24,7 @@ class MRUCache(BaseCaching):
             self.cache_data[key] = item
 
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-                most_used = self.MRU.pop()
+                most_used = self.MRU.pop(-2)
                 del self.cache_data[most_used]
                 print(f"DISCARD: {most_used}")
 
