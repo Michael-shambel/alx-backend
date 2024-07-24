@@ -22,6 +22,7 @@ class LIFOCache(BaseCaching):
                 self.LIFO.append(key)
             else:
                 self.LIFO.remove(key)
+                self.LIFO.append(key)
             self.cache_data[key] = item
 
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
