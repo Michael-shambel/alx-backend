@@ -13,13 +13,13 @@ class BasicCache(BaseCaching):
         """
         this method put key and item in the dictionary
         """
-        if key is not None or item is not None:
+        if key is not None and item is not None:
             self.cache_data[key] = item
 
     def get(self, key):
         """
         this method get item by the key
         """
-        if key is None and key not in self.cache_data:
+        if key is None or key not in self.cache_data:
             return None
         return self.cache_data[key]
