@@ -22,12 +22,14 @@ app.config.from_object(Config)
 
 babel = Babel(app)
 
+
 @app.route('/')
 def index():
     """
     Function to render a simple HTML file.
     """
     return render_template("1-index.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
