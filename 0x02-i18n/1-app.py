@@ -1,4 +1,4 @@
-#!/usr/bin python3
+#!/usr/bin/env python3
 """
 This is a simple script to test the functionality of the
 the 'instantiate' the Babel object in your application.
