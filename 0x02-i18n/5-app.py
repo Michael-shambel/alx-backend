@@ -10,6 +10,9 @@ app = Flask(__name__)
 
 
 class Config:
+    """
+    Configure available languages in our app.
+    """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
@@ -27,6 +30,9 @@ users = {
 
 
 def get_user():
+    """
+
+    """
     user_id = request.args.get('login_as')
     if user_id:
         user = users.get(int(user_id))
@@ -36,12 +42,16 @@ def get_user():
 
 @app.before_request
 def before_request():
+    """
+    """
     user = get_user()
     g.user = user
 
 
 @babel.localeselector
 def get_locale():
+    """
+    """
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
         return locale
@@ -54,6 +64,8 @@ def get_locale():
 
 @app.route('/')
 def index():
+    """
+    """
     return render_template('5-index.html')
 
 
