@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
-"""
-Use the message IDs
-home_title and home_header.
-"""
+""" 2. get local from request """
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
 
 
 class Config:
-    """Configure available languages in our app."""
+    """ Config class for app """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
@@ -22,13 +19,13 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale() -> str:
-    """Determine the best match with our supported languages."""
+    """ Get locale from request """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
 def home() -> str:
-    """Render the home page."""
+    """ / page """
     return render_template('3-index.html', locale=get_locale())
 
 
