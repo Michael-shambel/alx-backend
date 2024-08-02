@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-the _ or gettext function to parametrize your templates. Use the message IDs
+Use the message IDs
 home_title and home_header.
 """
 from flask import Flask, render_template, request
